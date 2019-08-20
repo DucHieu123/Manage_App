@@ -9,21 +9,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.news.R;
+import com.example.news.model.SanPham;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomAdapter extends ArrayAdapter<MonHoc> {
+public class CustomAdapter extends ArrayAdapter<SanPham> {
 
     private Context context;
     private int resource;
-    private List<MonHoc> arrMonHocs;
+    private List<SanPham> arrSanPham;
 
-    public CustomAdapter(Context context, int resource, ArrayList<MonHoc> arrMonHoc) {
-        super(context, resource, arrMonHoc);
+    public CustomAdapter(Context context, int resource, ArrayList<SanPham> arrSanPham) {
+        super(context, resource, arrSanPham);
         this.context = context;
         this.resource = resource;
-        this.arrMonHocs = arrMonHoc;
+        this.arrSanPham = arrSanPham;
     }
 
     @Override
@@ -40,15 +41,10 @@ public class CustomAdapter extends ArrayAdapter<MonHoc> {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        MonHoc monhoc = arrMonHocs.get(position);
-        try{
-            //Picasso.with(getContext()).load(contact.getImgageNew()).error(R.drawable.ic_launcher_foreground).into(viewHolder.imageNews);
-        }
-        catch (Exception ex){
-
-        }
-        viewHolder.tvTitle.setText(monhoc.getTenmonhoc());
-        viewHolder.tvCategory.setText(monhoc.getCahoc());
+        SanPham sanPham = arrSanPham.get(position);
+        viewHolder.imageNews.setImageBitmap(sanPham.getHinhanh());
+        viewHolder.tvTitle.setText(sanPham.getTensp());
+        viewHolder.tvCategory.setText(sanPham.getLoai());
         return convertView;
     }
 
@@ -57,8 +53,8 @@ public class CustomAdapter extends ArrayAdapter<MonHoc> {
         TextView tvTitle,tvCategory;
 
     }
-    public void refresh(List<MonHoc> newsList){
-        this.arrMonHocs = newsList;
+    public void refresh(List<SanPham> newsList){
+        this.arrSanPham = newsList;
         notifyDataSetChanged();
     }
 }

@@ -20,8 +20,7 @@ public class LoaiSanPham {
         this.loai = loai;
     }
 
-    public LoaiSanPham(int id, String loai) {
-        this.id = id;
+    public LoaiSanPham(String loai) {
         this.loai = loai;
     }
 
