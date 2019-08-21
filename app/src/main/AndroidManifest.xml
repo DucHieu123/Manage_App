@@ -16,7 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".SuaSanPhamActivity"></activity>
+        <activity android:name=".ThemSanPhamActivity" />
+        <activity android:name=".ThemLoaiSanPHamActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".DangNhapActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
